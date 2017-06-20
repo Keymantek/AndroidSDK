@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutRecDisp"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <EditText
+            android:id="@+id/editTextRecDisp"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:gravity="top"
+            android:longClickable="false" 
+            android:layout_weight="1" android:textSize="14sp" android:editable="false"/>
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutRecTool"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/ButtonClear"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="清除"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/radioButtonTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Txt" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonHex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hex" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/editTextLines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:editable="false"
+                android:enabled="false"
+                android:imeOptions="actionNone"
+                android:inputType="number"
+                android:longClickable="false"
+                android:text="0" >
+
+                <requestFocus />
+            </EditText>
+
+            <CheckBox
+                android:id="@+id/checkBoxAutoClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="自清" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutCOMAB"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutCOMA"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+           
+
+             <LinearLayout 
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <LinearLayout 
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView 
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="串口"/>
+	                <Spinner
+	                    android:id="@+id/SpinnerCOMA"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content" 
+	                    android:layout_weight="1"/>
+	
+	                <TextView 
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="数据位"/>
+	                <Spinner
+	                    android:id="@+id/SpinnerData"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content" 
+	                    android:layout_weight="1"/>
+	                <TextView 
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="停止位"/>
+	                <Spinner
+	                    android:id="@+id/SpinnerStop"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content" 
+	                    android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout 
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                   
+	                <TextView 
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="校验位"/>
+	                <Spinner
+	                    android:id="@+id/SpinnerCheck"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content" 
+	                    android:layout_weight="1"/>
+	                <TextView 
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="波特率"/>
+	                <Spinner
+                        android:id="@+id/SpinnerBaudRateCOMA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButtonCOMA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ToggleButton" />
+                </LinearLayout>
+             </LinearLayout>
+                
+
+               <EditText
+                android:id="@+id/editTextCOMA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:imeOptions="actionDone" android:layout_weight="1" android:singleLine="true"/>
+
+                <LinearLayout
+                    android:id="@+id/LinearLayoutOption2COMA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <EditText
+                        android:id="@+id/editTextTimeCOMA"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" android:text="500" android:layout_weight="1"/>
+
+                     <Button 
+                    android:layout_width="wrap_content"
+                    android:id="@+id/btn_scan"
+                    android:layout_height="wrap_content"
+                    android:text="开始扫描"
+                    android:enabled="false"
+                    />
+                    
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ms" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxAutoCOMA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自动" />
+
+                    <Button
+                        android:id="@+id/ButtonSendCOMA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="发送"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
