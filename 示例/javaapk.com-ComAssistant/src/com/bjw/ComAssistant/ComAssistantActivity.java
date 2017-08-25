@@ -97,6 +97,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		}
 	}
 
+	/*
 	// ----------------------------------------------------串口控制类
 	private class SerialControl extends SerialHelper
 	{
@@ -127,6 +128,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			});
 		}
 	}
+	*/
 
 	// ----------------------------------------------------清除按钮、发送按钮
 	class ButtonClickEvent implements View.OnClickListener
@@ -166,8 +168,9 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 					buttonView.setChecked(false);
 					return;
 				}
-				SetLoopData(ComA, editTextCOMA.getText().toString());
-				SetAutoSend(ComA, isChecked);
+				//SetLoopData(ComA, editTextCOMA.getText().toString());
+				//SetAutoSend(ComA, isChecked);
+				sendPortData(mySerialport, editTextCOMA.getText().toString());
 			}
 		}
 	}
@@ -310,7 +313,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 					// ComA.setParity(SpinnerParity.getSelectedItem().toString());
 					// ComA.setPort(SpinnerCOMA.getSelectedItem().toString());
 					// ComA.setBaudRate(SpinnerBaudRateCOMA.getSelectedItem().toString());
-					Log.d("test", "ComA=" + ComA.getBaudRate() + ComA.getData() + ComA.getStop() + ComA.getParity());
+					//Log.d("test", "ComA=" + ComA.getBaudRate() + ComA.getData() + ComA.getStop() + ComA.getParity());
 
 					// add by wt
 					try
@@ -423,7 +426,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 	AssistBean AssistData;// 用于界面数据序列化和反序列化
 	Button ButtonClear, ButtonSendCOMA, btn_scan;
 	CheckBox checkBoxAutoClear, checkBoxAutoCOMA;
-	SerialControl ComA;
+	//SerialControl ComA;
 
 	DispQueueThread DispQueue;// 刷新显示线程
 	EditText editTextRecDisp, editTextLines, editTextCOMA;
@@ -469,7 +472,11 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 	public void onConfigurationChanged(Configuration newConfig)
 	{
 		super.onConfigurationChanged(newConfig);
-		CloseComPort(ComA);
+		//CloseComPort(ComA);
+		if (mySerialport != null && mySerialport.getIsOpen())
+		{
+			mySerialport.Close();
+		}
 		setContentView(R.layout.main);
 		setControls();
 	}
@@ -532,7 +539,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 				Log.d("dataRecord", "err=" + e.getMessage());
 			}
 		}
-		ComA = new SerialControl();
+		//ComA = new SerialControl();
 		DispQueue = new DispQueueThread();
 		DispQueue.start();
 		AssistData = getAssistData();
@@ -586,10 +593,15 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 	public void onDestroy()
 	{
 		saveAssistData(AssistData);
-		CloseComPort(ComA);
+		//CloseComPort(ComA);
 		super.onDestroy();
+		if (mySerialport != null && mySerialport.getIsOpen())
+		{
+			mySerialport.Close();
+		}
 	}
 
+	/*
 	// ----------------------------------------------------关闭串口
 	private void CloseComPort(SerialHelper ComPort)
 	{
@@ -599,6 +611,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			ComPort.close();
 		}
 	}
+	*/
 
 	// ----------------------------------------------------刷新界面数据
 	private void DispAssistData(AssistBean AssistData)
@@ -617,8 +630,8 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		}
 		editTextTimeCOMA.setText(AssistData.sTimeA);
 
-		setDelayTime(editTextTimeCOMA);
-
+		//setDelayTime(editTextTimeCOMA);
+		
 	}
 
 	// ----------------------------------------------------显示接收数据
@@ -674,6 +687,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		return AssistData;
 	}
 
+	/*
 	// ----------------------------------------------------打开串口
 	private void OpenComPort(SerialHelper ComPort)
 	{
@@ -694,6 +708,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			ShowMessage("打开串口失败:参数错误!");
 		}
 	}
+	*/
 
 	// ----------------------------------------------------保存、获取界面数据
 	private void saveAssistData(AssistBean AssistData)
@@ -717,6 +732,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		}
 	}
 
+	/*
 	// ----------------------------------------------------串口发送
 	private void sendPortData(SerialHelper ComPort, String sOut)
 	{
@@ -732,6 +748,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			}
 		}
 	}
+	*/
 
 	// add by wt
 	private void sendPortData(SerialPort serialport, String sOut)
@@ -742,9 +759,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			{
 				if (radioButtonTxt.isChecked())
 				{
-
 					serialport.Write(sOut.getBytes());
-
 				}
 				else if (radioButtonHex.isChecked())
 				{
@@ -759,6 +774,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		}
 	}
 
+	/*
 	// ----------------------------------------------------设置自动发送模式开关
 	private void SetAutoSend(SerialHelper ComPort, boolean isAutoSend)
 	{
@@ -771,6 +787,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			ComPort.stopSend();
 		}
 	}
+	*/
 
 	// ----------------------------------------------------
 	private void setControls()
@@ -919,6 +936,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		DispAssistData(AssistData);
 	}
 
+	/*
 	// ----------------------------------------------------设置自动发送延时
 	private void setDelayTime(TextView v)
 	{
@@ -934,7 +952,9 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 	{
 		ComPort.setiDelay(Integer.parseInt(sTime));
 	}
-
+	*/
+	
+	/*
 	// ----------------------------------------------------设置自动发送数据
 	private void SetLoopData(SerialHelper ComPort, String sLoopData)
 	{
@@ -947,21 +967,25 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 			ComPort.setHexLoopData(sLoopData);
 		}
 	}
+	*/
 
 	// add by wt
 
 	// add by wt
 	// TODO scan
 
+	
 	// ----------------------------------------------------设置自动发送数据
 	private void setSendData(TextView v)
 	{
 		if (v == editTextCOMA)
 		{
 			AssistData.setSendA(v.getText().toString());
-			SetLoopData(ComA, v.getText().toString());
+			//SetLoopData(ComA, v.getText().toString());
+			sendPortData(mySerialport, v.getText().toString());
 		}
 	}
+	
 
 	// ------------------------------------------显示消息
 	private void ShowMessage(String sMsg)

@@ -38,6 +38,7 @@ public class until {
             XmlSerialize.Serialize(outputstream,dataRecord);
             Log.d("dataRecord", "–Ú¡–ªØ="+outputstream.toString() );
             outputStream.write(outputstream.toString().getBytes());
+            outputstream.flush();
             outputStream.close();
         }catch (Exception e)
         {
