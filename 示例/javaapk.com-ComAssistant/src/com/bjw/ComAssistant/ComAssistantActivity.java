@@ -321,11 +321,12 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 
 						if (SpinnerCOMA.getSelectedItem().toString().equals("RS232"))
 						{
-							dInfo.IR_Power(false);
-							dInfo.RS485_Power(false);
-							dInfo.Scan_Power(false);
-							dInfo.RS232_Power(true);
-							mySerialport.setPortName(dInfo.RS232PortName());
+							//dInfo.IR_Power(false);
+							
+							//dInfo.Scan_Power(false);
+							//dInfo.RS232_Power(true);
+							dInfo.RS485_Power(true);
+							mySerialport.setPortName(dInfo.RS485PortName());
 						}
 						else if (SpinnerCOMA.getSelectedItem().toString().equals("Scan"))
 						{
@@ -396,6 +397,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 					{
 						until.serializer(dataRecordInfo);
 						mySerialport.Open();
+						dInfo.RS485_SendEnable(true);
 					}
 					catch (IOException e)
 					{
@@ -757,6 +759,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		{
 			try
 			{
+				dInfo.RS485_SendEnable(true);
 				if (radioButtonTxt.isChecked())
 				{
 					serialport.Write(sOut.getBytes());
@@ -765,9 +768,15 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 				{
 					serialport.Write(MyFunc.HexToByteArr(sOut));
 				}
+				Thread.sleep(100);
+				dInfo.RS485_SendEnable(false);
 			}
 			catch (IOException e)
 			{
+				e.printStackTrace();
+			} catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
