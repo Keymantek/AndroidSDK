@@ -929,6 +929,7 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 	}
 
 	// ------------------------------------------œ‘ æœ˚œ¢
+	@SuppressWarnings("unused")
 	private void ShowMessage(String sMsg)
 	{
 		Toast.makeText(this, sMsg, Toast.LENGTH_SHORT).show();
