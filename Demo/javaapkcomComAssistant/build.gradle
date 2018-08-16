@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "28.0.1"
+
+    defaultConfig {
+        applicationId "com.bjw.ComAssistant"
+        minSdkVersion 10
+        targetSdkVersion 10
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':hardware')
+    implementation files('libs/convert.jar')
+    implementation files('libs/deviceinfo.jar')
+    implementation files('libs/event.jar')
+    implementation files('libs/linq4j.jar')
+    implementation files('libs/messagequeue.jar')
+    implementation files('libs/RXTXcomm.jar')
+    implementation files('libs/serialport.jar')
+    implementation files('libs/xmlserialize.jar')
+    implementation files('libs/xstream-1.4.7.jar')
+}

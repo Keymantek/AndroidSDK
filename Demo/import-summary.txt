@@ -1,0 +1,145 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From hardware:
+* .gitignore
+* doc\
+* doc\allclasses-frame.html
+* doc\allclasses-noframe.html
+* doc\com\
+* doc\com\example\
+* doc\com\example\uartdemo\
+* doc\com\example\uartdemo\SerialPort.html
+* doc\com\example\uartdemo\class-use\
+* doc\com\example\uartdemo\class-use\SerialPort.html
+* doc\com\example\uartdemo\package-frame.html
+* doc\com\example\uartdemo\package-summary.html
+* doc\com\example\uartdemo\package-tree.html
+* doc\com\example\uartdemo\package-use.html
+* doc\constant-values.html
+* doc\deprecated-list.html
+* doc\help-doc.html
+* doc\index-files\
+* doc\index-files\index-1.html
+* doc\index-files\index-2.html
+* doc\index-files\index-3.html
+* doc\index-files\index-4.html
+* doc\index-files\index-5.html
+* doc\index-files\index-6.html
+* doc\index-files\index-7.html
+* doc\index-files\index-8.html
+* doc\index.html
+* doc\keymantek\
+* doc\keymantek\android\
+* doc\keymantek\android\hardware\
+* doc\keymantek\android\hardware\BuildConfig.html
+* doc\keymantek\android\hardware\GPIO.html
+* doc\keymantek\android\hardware\SerialPort.html
+* doc\keymantek\android\hardware\class-use\
+* doc\keymantek\android\hardware\class-use\BuildConfig.html
+* doc\keymantek\android\hardware\class-use\GPIO.html
+* doc\keymantek\android\hardware\class-use\SerialPort.html
+* doc\keymantek\android\hardware\package-frame.html
+* doc\keymantek\android\hardware\package-summary.html
+* doc\keymantek\android\hardware\package-tree.html
+* doc\keymantek\android\hardware\package-use.html
+* doc\overview-frame.html
+* doc\overview-summary.html
+* doc\overview-tree.html
+* doc\package-list
+* doc\script.js
+* doc\stylesheet.css
+From javaapk.com-ComAssistant:
+* .externalToolBuilders\
+* .externalToolBuilders\New_Builder (2).launch
+* .externalToolBuilders\New_Builder.launch
+* .idea\
+* .idea\codeStyles\
+* .idea\codeStyles\Project.xml
+* .idea\compiler.xml
+* .idea\encodings.xml
+* .idea\inspectionProfiles\
+* .idea\inspectionProfiles\Project_Default.xml
+* .idea\javaapk.com-ComAssistant.iml
+* .idea\misc.xml
+* .idea\modules.xml
+* .idea\workspace.xml
+* obj\
+* obj\local\
+* obj\local\armeabi-v7a\
+* obj\local\armeabi-v7a\libserial_port.so
+* obj\local\armeabi-v7a\objs\
+* obj\local\armeabi-v7a\objs\serial_port\
+* obj\local\armeabi-v7a\objs\serial_port\SerialPort.o
+* obj\local\armeabi-v7a\objs\serial_port\SerialPort.o.d
+* obj\local\armeabi\
+* obj\local\armeabi\libserial_port.so
+* obj\local\armeabi\objs\
+* obj\local\armeabi\objs\serial_port\
+* obj\local\armeabi\objs\serial_port\SerialPort.o
+* obj\local\armeabi\objs\serial_port\SerialPort.o.d
+* obj\local\x86\
+* obj\local\x86\libserial_port.so
+* obj\local\x86\objs\
+* obj\local\x86\objs\serial_port\
+* obj\local\x86\objs\serial_port\SerialPort.o
+* obj\local\x86\objs\serial_port\SerialPort.o.d
+* proguard.cfg
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In hardware:
+* AndroidManifest.xml => hardware\src\main\AndroidManifest.xml
+* libs\armeabi\libcepri.so => hardware\src\main\jniLibs\armeabi\libcepri.so
+* libs\armeabi\libdev.so => hardware\src\main\jniLibs\armeabi\libdev.so
+* libs\armeabi\libdevapi.so => hardware\src\main\jniLibs\armeabi\libdevapi.so
+* libs\armeabi\libserialport.so => hardware\src\main\jniLibs\armeabi\libserialport.so
+* libs\armeabi\libSerialPortP44.so => hardware\src\main\jniLibs\armeabi\libSerialPortP44.so
+* libs\armeabi\libTesamSPI.so => hardware\src\main\jniLibs\armeabi\libTesamSPI.so
+* src\ => hardware\src\main\java\
+In javaapk.com-ComAssistant:
+* AndroidManifest.xml => javaapkcomComAssistant\src\main\AndroidManifest.xml
+* libs\convert.jar => javaapkcomComAssistant\libs\convert.jar
+* libs\deviceinfo.jar => javaapkcomComAssistant\libs\deviceinfo.jar
+* libs\event.jar => javaapkcomComAssistant\libs\event.jar
+* libs\linq4j.jar => javaapkcomComAssistant\libs\linq4j.jar
+* libs\messagequeue.jar => javaapkcomComAssistant\libs\messagequeue.jar
+* libs\RXTXcomm.jar => javaapkcomComAssistant\libs\RXTXcomm.jar
+* libs\serialport.jar => javaapkcomComAssistant\libs\serialport.jar
+* libs\xmlserialize.jar => javaapkcomComAssistant\libs\xmlserialize.jar
+* libs\xstream-1.4.7.jar => javaapkcomComAssistant\libs\xstream-1.4.7.jar
+* res\ => javaapkcomComAssistant\src\main\res\
+* src\ => javaapkcomComAssistant\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
