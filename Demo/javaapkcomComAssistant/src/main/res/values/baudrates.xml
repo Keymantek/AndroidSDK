@@ -36,7 +36,8 @@
     
     <string-array name="port_name">
         <item>RS232</item>
-        <item>Scan</item>     
+        <item>Scan</item>
+        <item>红外</item>
     </string-array>
     
     <string-array name="data_name">

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Demo.iml" filepath="$PROJECT_DIR$/Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/hardware/hardware.iml" filepath="$PROJECT_DIR$/hardware/hardware.iml" />
-      <module fileurl="file://$PROJECT_DIR$/javaapk.com-ComAssistant.iml" filepath="$PROJECT_DIR$/javaapk.com-ComAssistant.iml" />
       <module fileurl="file://$PROJECT_DIR$/javaapkcomComAssistant/javaapkcomComAssistant.iml" filepath="$PROJECT_DIR$/javaapkcomComAssistant/javaapkcomComAssistant.iml" />
     </modules>
   </component>

@@ -222,6 +222,20 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 					toggleButtonCOMA.setChecked(false);
 					btn_scan.setEnabled(true);
 				}
+				else if (SpinnerCOMA.getSelectedItem().toString().equals("红外"))
+				{
+					if ((mySerialport != null) && mySerialport.getIsOpen())
+					{
+						mySerialport.Close();
+					}
+					dInfo.RS232_Power(false);
+					dInfo.RS485_Power(false);
+					dInfo.Scan_Power(false);
+					checkBoxAutoCOMA.setChecked(false);
+					toggleButtonCOMA.setChecked(false);
+					btn_scan.setEnabled(false);
+					dInfo.IR_Power(true);
+				}
 				else
 				{
 					btn_scan.setEnabled(false);
@@ -313,6 +327,11 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 						//	dInfo.RS485_Power(true);
 							dInfo.TTLComPort_Power(true);
 							mySerialport.setPortName(dInfo.TTLComPortPortName());
+						}
+						else if (SpinnerCOMA.getSelectedItem().toString().equals("红外"))
+						{
+							dInfo.IR_Power(true);
+							mySerialport.setPortName(dInfo.IRPortName());
 						}
 						else if (SpinnerCOMA.getSelectedItem().toString().equals("Scan"))
 						{
@@ -642,12 +661,12 @@ public class ComAssistantActivity extends Activity implements OnDataReceivedList
 		editTextRecDisp.append(sMsg);
 		iRecLines++;
 		editTextLines.setText(String.valueOf(iRecLines));
-		if ((iRecLines > 500) && (checkBoxAutoClear.isChecked()))// 达到500项自动清除
+		/*if ((iRecLines > 500) && (checkBoxAutoClear.isChecked()))// 达到500项自动清除
 		{
 			editTextRecDisp.setText("");
 			editTextLines.setText("0");
 			iRecLines = 0;
-		}
+		}*/
 	}
 
 	// ----------------------------------------------------
