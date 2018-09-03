@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ScannerAssistantActivity!</string>
+    <string name="app_name">ScannerAssistant</string>
+    <string name="clear">Clear</string>
+    <string name="scan">scan</string>
+    <string name="kem">科曼信息</string>
+    <string name="themeColor">#ffffff</string>
+    <string name="copyright1">电话：0755-23981390</string>
+    <string name="copyright2">Copyright©深圳市科曼信息技术股份有限公司</string>
+    <string name="comName">科曼信息</string>
+    <string name="title_activity_web">WebActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
